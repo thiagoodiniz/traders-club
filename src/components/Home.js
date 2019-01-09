@@ -2,9 +2,10 @@ import React from 'react'
 
 const Home = () =>{
     return(
-            <div className="body-menu banner">Pesquisa de veículos do TradersClub</div> 
+        <div className="banner">
+            <p>Pesquisa de veículos do TradersClub</p>
+        </div> 
     )
-
 } 
 
 export default Home

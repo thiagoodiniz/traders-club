@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom';
 
 const styles = {
     root: {
@@ -27,7 +28,9 @@ const SearchBar = (props) => {
                     className: classes.input
                 }}
             />
-            <Button variant="contained" className='button'>Cadastrar</Button>
+            <Link to={props.formLink}>
+                <Button variant="contained" className='button'>Cadastrar</Button>
+            </Link>
         </div>
     )
 }
