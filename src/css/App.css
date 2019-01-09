@@ -17,6 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
   height: 120px;
+  width: 1300px;
 }
 
 .search-bar > div {
