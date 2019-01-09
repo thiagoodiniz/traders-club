@@ -1,42 +1,25 @@
-import React, { Component } from 'react';
-import { createMuiTheme } from '@material-ui/core/styles';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-  },
-  palette: {
-    primary: {
-      main: '#1f2d40',
-    },
-    secondary: {
-      main: '#0e1823',
-    },
-  },
-});
+import React, { Component } from 'react'
+import Home from './components/Home'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import SearchBar from './components/SearchBar'
+import './css/Shared.css'
+import './css/App.css'
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className="App">
-          <header className="App-header">
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
-      </MuiThemeProvider>
-    );
+        <Router>
+          <div className="container">
+             <SearchBar />
+             <div className="menu">
+                  <h1>TC</h1>
+              </div> 
+            <Switch>
+              <Route exact path="/" component={Home} />
+            </Switch> 
+          </div>
+        </Router>
+    )
   }
 }
 
