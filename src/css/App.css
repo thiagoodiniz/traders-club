@@ -1,0 +1,42 @@
+
+.container{
+  display: grid;
+  grid-template-areas: 
+  'menu search-bar search-bar search-bar'
+  'menu body-menu body-menu body-menu'
+  'menu body-menu body-menu body-menu'
+}
+
+.search-bar {
+  grid-area: search-bar;
+  background-color: #182433;
+  color:#f5f5f5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 120px;
+}
+
+.search-bar > div {
+  padding: 10px;
+}
+
+.button {
+  height: 50px;
+}
+
+.menu { 
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  height: -webkit-fill-available;
+  width: 320px;
+}
+
+.body-menu {
+  grid-area: body-menu;
+}
+
