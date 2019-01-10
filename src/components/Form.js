@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Input from '@material-ui/core/Input'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid'
 
 const styles = () => ({
     root: {
