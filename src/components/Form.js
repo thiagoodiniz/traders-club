@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Creators as ListActions } from '../store/actions/list'
+import { Creators as FormActions } from '../store/actions/form'
 
 const styles = () => ({
     root: {
@@ -58,6 +59,14 @@ class Form extends Component{
         }else{
             this.props.addVehicle({title, model, year, brand, color, price, km})
             this.clearForm();
+        }
+    }
+
+    componentWillMount(){
+        console.log('teste')
+        console.log(this.props.brands)
+        if(this.props.brands.length === 0){
+            this.props.startAdd()
         }
     }
 
@@ -171,6 +180,12 @@ class Form extends Component{
    
 }
 
-const mapDispatchToProps = (dispatch) => bindActionCreators( ListActions , dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators( {...FormActions, ...ListActions} , dispatch)
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(Form))
+const mapStateToProps = state => ({
+    brands: state.form.brands
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Form))
+
+
