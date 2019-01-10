@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 import Vehicle from './Vehicle'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { Creators as FormActions } from '../store/actions/form'
 
 const styles = () => ({
   root: {
@@ -13,16 +16,23 @@ const styles = () => ({
   }
 });
 
-const ListVehicles = (props) => {
-  const { classes } = props;
+class ListVehicles extends Component{
+
+  handleClick = (id, title, model, year, brand, price, km) =>{
+    this.props.startUpdate({id, title, model, year, brand, price, km});
+  }  
+
+  render(){
+    const { classes } = this.props;
     return(
         <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-          { props.list.map((vehicle) => {
+          { this.props.list.map((vehicle) => {
             return(
-              <List component="nav" className={classes.root}>
+              <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>
                 <Vehicle 
+                  id={vehicle.id}
                   title={vehicle.title}
                   model={vehicle.model}
                   year={vehicle.year}
@@ -38,6 +48,9 @@ const ListVehicles = (props) => {
         </Grid>
       </div>
     )
+  }
 }
 
-export default withStyles(styles)(ListVehicles)
+const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch)
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(ListVehicles))
