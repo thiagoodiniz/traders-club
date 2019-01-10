@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Input from '@material-ui/core/Input'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
@@ -62,9 +64,7 @@ class Form extends Component{
         }
     }
 
-    componentWillMount(){
-        console.log('teste')
-        console.log(this.props.brands)
+    componentDidMount(){
         if(this.props.brands.length === 0){
             this.props.startAdd()
         }
@@ -121,14 +121,24 @@ class Form extends Component{
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <Input
+                                <Select
                                     className={classes.inputFullWidth}
                                     name="brand"
                                     placeholder="Montadora"
                                     value={this.state.brand}
                                     onChange={this.handleChange}
                                     error={!this.state.brand && this.state.showErrors}
-                                />
+                                >
+                                    <MenuItem value="">
+                                        <em>Escolha a montadora...</em>
+                                    </MenuItem>
+                                    {this.props.brands.map(brand => (
+                                        <MenuItem key={brand.id} value={brand.name} >
+                                            {brand.name}
+                                        </MenuItem>
+                                    ))}                                
+
+                                </Select>
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <Input
