@@ -19,10 +19,17 @@ const ListVehicles = (props) => {
         <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-          { [1,2,3,4].map((n) => {
+          { props.list.map((vehicle) => {
             return(
               <List component="nav" className={classes.root}>
-                <Vehicle title={`teste ${n}`} />
+                <Vehicle 
+                  title={vehicle.title}
+                  model={vehicle.model}
+                  year={vehicle.year}
+                  brand={vehicle.brand}
+                  price={vehicle.price}
+                  km={vehicle.km}
+                />
               </List>
             )
           })

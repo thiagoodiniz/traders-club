@@ -26,18 +26,18 @@ const Vehicle = (props) => {
                     secondary={
                     <React.Fragment>
                         <Typography component="h1" variant="subheading" className={classes.text}>
-                        to Scott, Alex, Jennifer
+                        {`${props.model} • ${props.brand} • ${props.km} KM `}
                         </Typography>
                     </React.Fragment>
                     }
                 />
                 <ListItemSecondaryAction>
                     <Typography component="h1" variant="title" className={classes.text}>
-                        {props.title}
+                        {`R$ ${props.price}`}
                     </Typography>
                     <React.Fragment>
                         <Typography component="h1" variant="subheading"className={classes.text} >
-                        to Scott, Alex, Jennifer
+                            {props.year}
                         </Typography>
                     </React.Fragment>
                 </ListItemSecondaryAction>         

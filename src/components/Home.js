@@ -7,11 +7,15 @@ class Home extends Component {
         return(
             <div className="banner">
                 {/* <p>Pesquisa de veículos do TradersClub</p> --> */}
-            <ListVehicles />
+            <ListVehicles list={this.props.list} />
     
             </div> 
         )
     }
 } 
 
-export default connect(null,null)(Home)
+const mapStateToProps = state => ({
+    list: state.list.vehicles
+}) 
+
+export default connect(mapStateToProps,null)(Home)
