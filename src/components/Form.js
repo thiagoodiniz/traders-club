@@ -3,6 +3,9 @@ import Input from '@material-ui/core/Input'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { Creators as ListActions } from '../store/actions/list'
 
 const styles = () => ({
     root: {
@@ -45,6 +48,24 @@ class Form extends Component{
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
+    }
+
+    handleSubmit = () => {
+        const {title, model, year, brand, color, price, km} = this.state
+        this.props.addVehicle({title, model, year, brand, color, price, km})
+        this.clearForm();
+    }
+
+    clearForm(){
+        this.setState({
+            title: '',
+            model: '',
+            year: '',
+            brand: '',
+            color: '',
+            price: '',
+            km: ''
+        })
     }
 
     render(){
@@ -126,7 +147,7 @@ class Form extends Component{
                                 <Button className={classes.editButton} variant="contained">Cancelar</Button>
                             </Grid>
                             <Grid item xs={12} sm={1} > 
-                                <Button className={classes.saveButton} variant="contained">Salvar</Button>
+                                <Button className={classes.saveButton} onClick={this.handleSubmit} variant="contained">Salvar</Button>
                             </Grid>
                         </Grid>   
                         </div>                         
@@ -136,4 +157,6 @@ class Form extends Component{
    
 }
 
-export default withStyles(styles)(Form)
+const mapDispatchToProps = (dispatch) => bindActionCreators( ListActions , dispatch)
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Form))
