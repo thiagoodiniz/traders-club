@@ -43,7 +43,8 @@ class Form extends Component{
         brand: '',
         color: '',
         price: '',
-        km: ''
+        km: '',
+        showErrors: false
     }
 
     handleChange = (event) => {
@@ -52,8 +53,12 @@ class Form extends Component{
 
     handleSubmit = () => {
         const {title, model, year, brand, color, price, km} = this.state
-        this.props.addVehicle({title, model, year, brand, color, price, km})
-        this.clearForm();
+        if(!title || !model || !year || !brand || !color || !price || !km){
+            this.setState({showErrors: true})
+        }else{
+            this.props.addVehicle({title, model, year, brand, color, price, km})
+            this.clearForm();
+        }
     }
 
     clearForm(){
@@ -64,7 +69,8 @@ class Form extends Component{
             brand: '',
             color: '',
             price: '',
-            km: ''
+            km: '',
+            showErrors: false
         })
     }
 
@@ -81,6 +87,8 @@ class Form extends Component{
                                     placeholder="Título"
                                     value={this.state.title}
                                     onChange={this.handleChange}
+                                    error={!this.state.title && this.state.showErrors}
+                                    
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -90,6 +98,7 @@ class Form extends Component{
                                     placeholder="Modelo" 
                                     value={this.state.model}
                                     onChange={this.handleChange}
+                                    error={!this.state.model && this.state.showErrors}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -99,6 +108,7 @@ class Form extends Component{
                                     placeholder="Ano"
                                     value={this.state.year}
                                     onChange={this.handleChange}
+                                    error={!this.state.year && this.state.showErrors}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -108,6 +118,7 @@ class Form extends Component{
                                     placeholder="Montadora"
                                     value={this.state.brand}
                                     onChange={this.handleChange}
+                                    error={!this.state.brand && this.state.showErrors}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -117,6 +128,7 @@ class Form extends Component{
                                     placeholder="Cor" 
                                     value={this.state.color}
                                     onChange={this.handleChange}
+                                    error={!this.state.color && this.state.showErrors}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -126,6 +138,7 @@ class Form extends Component{
                                     placeholder="Preço" 
                                     value={this.state.price}
                                     onChange={this.handleChange}
+                                    error={!this.state.price && this.state.showErrors}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -135,6 +148,7 @@ class Form extends Component{
                                     placeholder="KM"
                                     value={this.state.km}
                                     onChange={this.handleChange}
+                                    error={!this.state.km && this.state.showErrors}
                                 />
                             </Grid>
                         </Grid>
