@@ -41,6 +41,7 @@ const styles = () => ({
 class Form extends Component{
 
     state = {
+        id: '',
         title: '',
         model: '',
         year: '',
@@ -68,11 +69,17 @@ class Form extends Component{
     handleCancel = () => {
         this.props.cancelUpdate();
     }
+
+    handleRemove = () => {
+        this.props.removeVehicleStart(this.state.id)
+        this.clearForm();
+    }
     
     componentDidMount(){
         if(this.props.actionForm === 'update'){
-            const {title, model, year, brand, color, price, km} = this.props.form.vehicleToUpdate
+            const {id, title, model, year, brand, color, price, km} = this.props.form.vehicleToUpdate
             this.setState({
+                id,
                 title, 
                 model, 
                 year, 
@@ -196,7 +203,7 @@ class Form extends Component{
                             <Grid item xs={12} sm={2} > 
                             {this.props.actionForm === 'update' &&(
                                  <div>
-                                    <Button className={classes.editButton} variant="contained">Remover</Button>
+                                    <Button className={classes.editButton} onClick={this.handleRemove} variant="contained">Remover</Button>
                                  </div>
                             )}
                             </Grid>
