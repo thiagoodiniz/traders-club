@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Creators as ListActions } from '../store/actions/list'
 import { Creators as FormActions } from '../store/actions/form'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const styles = () => ({
     root: {
@@ -71,8 +71,7 @@ class Form extends Component{
     
     componentDidMount(){
         if(this.props.actionForm === 'update'){
-            const {title, model, year, brand, color, price, km} = this.props.form.vehicleToUpdate;
-            console.log(color)
+            const {title, model, year, brand, color, price, km} = this.props.form.vehicleToUpdate
             this.setState({
                 title, 
                 model, 
