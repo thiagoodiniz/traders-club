@@ -28,12 +28,22 @@ export default function form(state = INITIAL_STATE, action){
                     action: 'update',
                     vehicleToUpdate: action.vehicleToUpdate
                 }    
+
+            case Types.UPDATE_VEHICLE_SUCCESS: 
+                return {
+                    ...state,
+                    message: 'Veículo atualizado com sucesso'
+                }
+            
+            case Types.UPDATE_VEHICLE_FAIL:
+                return {
+                    ...state,
+                    message: 'Ocorreu um erro ao atualizar o veículo'
+                }
             
             case Types.FINISH_ADD:
                 return {
-                    action: null,
-                    brands: [],
-                    vehicleToUpdate: { },
+                    ...INITIAL_STATE,
                     message: 'Veículo adicionado com sucesso'
                                 }
             case Types.ADD_VEHICLE_FAIL: 

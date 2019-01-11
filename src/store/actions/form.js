@@ -7,6 +7,8 @@ export const Types = {
     GET_BRANDS_FAIL: 'form/GET_BRANDS_FAIL',
     START_UPDATE: 'form/START_UPDATE',
     FINISH_UPDATE: 'form/FINISH_UPDATE',
+    UPDATE_VEHICLE_SUCCESS: 'form/UPDATE_VEHICLE_SUCCESS',
+    UPDATE_VEHICLE_FAIL: 'form/UPDATE_VEHICLE_FAIL',
     CANCEL_UPDATE: 'form/CANCEL_UPDATE',
     REMOVE_VEHICLE_START: 'form/REMOVE_VEHICLE_START',
     REMOVE_VEHICLE_SUCCESS: 'form/REMOVE_VEHICLE_SUCCESS',
@@ -37,8 +39,9 @@ export const Creators = {
         type: Types.START_UPDATE,
         vehicleToUpdate: vehicle
     }),
-    finishUpdate: () =>({
-        type: Types.FINISH_UPDATE
+    finishUpdate: (vehicle) =>({
+        type: Types.FINISH_UPDATE,
+        vehicle
     }),
     cancelUpdate: () => ({
         type: Types.CANCEL_UPDATE
@@ -52,6 +55,12 @@ export const Creators = {
     }),
     removeVehicleFail: () => ({
         type: Types.REMOVE_VEHICLE_FAIL
+    }),
+    updateVehicleSuccess: () => ({
+        type: Types.UPDATE_VEHICLE_SUCCESS
+    }),
+    updateVehicleFail: () => ({
+        type: Types.UPDATE_VEHICLE_FAIL
     }),
     clearMessages: () => ({
         type: Types.CLEAR_MESSAGES
