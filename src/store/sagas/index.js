@@ -6,6 +6,7 @@ import { getBrands, getCars } from './list'
 export default function* rootSaga() {
         return yield all([
             takeLatest(FormTypes.START_ADD, getBrands),
+            takeLatest(FormTypes.START_UPDATE, getBrands),
             takeLatest(ListTypes.START_SEARCH_VEHICLES, getCars)
         ])
 }
