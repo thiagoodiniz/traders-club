@@ -19,8 +19,8 @@ const styles = () => ({
 
 class ListVehicles extends Component{
 
-  handleClick = (id, title, model, year, brand, price, km) =>{
-    this.props.startUpdate({id, title, model, year, brand, price, km});
+  handleClick = (id, title, model, color, year, brand, price, km) =>{
+    this.props.startUpdate({id, title, model, color, year, brand, price, km});
   }  
 
   render(){
@@ -32,7 +32,7 @@ class ListVehicles extends Component{
           { this.props.list.map((vehicle) => {
             return(
               <Link to='form' style={{ textDecoration: 'none' }}>
-                  <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>
+                  <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.color,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>
                       <Vehicle 
                         id={vehicle.id}
                         title={vehicle.title}
