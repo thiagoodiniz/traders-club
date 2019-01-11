@@ -32,3 +32,17 @@ export function* createVehicle(action){
             yield put(FormActions.addVehiclefail())
         }
 }
+
+export function* removeVehicle (action){
+    try{
+        const response = yield call(services.removeVehicleRequest, action.id)
+        if(response.status === 204){
+            yield put(FormActions.removeVehicleSuccess())
+        }else{
+            yield put(FormActions.removeVehicleFail())
+        }
+    }catch(err){
+        console.log(err)
+        yield put(FormActions.removeVehicleFail())
+    }
+}
