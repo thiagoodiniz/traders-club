@@ -6,6 +6,7 @@ import Vehicle from './Vehicle'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Creators as FormActions } from '../store/actions/form'
+import {Link} from 'react-router-dom';
 
 const styles = () => ({
   root: {
@@ -30,17 +31,19 @@ class ListVehicles extends Component{
           <Grid item xs={12}>
           { this.props.list.map((vehicle) => {
             return(
-              <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>
-                <Vehicle 
-                  id={vehicle.id}
-                  title={vehicle.title}
-                  model={vehicle.model}
-                  year={vehicle.year}
-                  brand={vehicle.brand}
-                  price={vehicle.price}
-                  km={vehicle.km}
-                />
-              </List>
+              <Link to='form' style={{ textDecoration: 'none' }}>
+                  <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>
+                      <Vehicle 
+                        id={vehicle.id}
+                        title={vehicle.title}
+                        model={vehicle.model}
+                        year={vehicle.year}
+                        brand={vehicle.brand}
+                        price={vehicle.price}
+                        km={vehicle.km}
+                      />
+                  </List>
+              </Link>
             )
           })
           }
