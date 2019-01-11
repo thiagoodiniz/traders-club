@@ -203,7 +203,7 @@ class Form extends Component{
                             </Grid>
                             <Grid item xs={12} sm={8} > 
                                 {this.props.actionForm === 'update' &&(
-                                    <Link to='home'>
+                                    <Link to='/'>
                                         <Button className={classes.editButton} onClick={this.handleCancel} variant="contained">Cancelar</Button>
                                     </Link>
                                 )}
