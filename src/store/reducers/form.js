@@ -64,6 +64,12 @@ export default function form(state = INITIAL_STATE, action){
                     message: 'Não foi possível remover o veículo'
                 } 
 
+            case Types.CLEAR_MESSAGES:
+                return {
+                    ...state,
+                    message: null
+                }    
+                
             default:
                 return {
                     ...state 

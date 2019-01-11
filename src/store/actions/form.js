@@ -10,7 +10,8 @@ export const Types = {
     CANCEL_UPDATE: 'form/CANCEL_UPDATE',
     REMOVE_VEHICLE_START: 'form/REMOVE_VEHICLE_START',
     REMOVE_VEHICLE_SUCCESS: 'form/REMOVE_VEHICLE_SUCCESS',
-    REMOVE_VEHICLE_FAIL: 'form/REMOVE_VEHICLE_FAIL'
+    REMOVE_VEHICLE_FAIL: 'form/REMOVE_VEHICLE_FAIL',
+    CLEAR_MESSAGES: 'form/CLEAR_MESSAGES'
 }
 
 export const Creators = {
@@ -51,6 +52,9 @@ export const Creators = {
     }),
     removeVehicleFail: () => ({
         type: Types.REMOVE_VEHICLE_FAIL
+    }),
+    clearMessages: () => ({
+        type: Types.CLEAR_MESSAGES
     })
 
 }

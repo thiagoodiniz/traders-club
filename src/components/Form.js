@@ -90,6 +90,9 @@ class Form extends Component{
                 showErrors: false
             })
         }
+
+        this.props.clearMessages()
+
     }
 
     clearForm(){
