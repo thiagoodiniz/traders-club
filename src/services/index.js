@@ -18,5 +18,11 @@ export const services = {
         return api.post('cars', vehicle)
             .then(resp => resp.data.car)
             .catch(err => err)
+    },
+
+    removeVehicleRequest: (id) => {
+        return api.delete(`cars/${id}`)
+            .then(resp => resp)
+            .catch(err => err)
     }
 }
