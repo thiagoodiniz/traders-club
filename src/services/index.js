@@ -12,5 +12,11 @@ export const services = {
         return api.get('cars')
             .then(resp => resp.data.cars)
             .catch(err => err)
+    },
+
+    createVehicleRequest: (vehicle) => {
+        return api.post('cars', vehicle)
+            .then(resp => resp.data.car)
+            .catch(err => err)
     }
 }
