@@ -19,24 +19,24 @@ const Vehicle = (props) => {
             <ListItem button>
                 <ListItemText
                     primary={
-                    <Typography component="h1" variant="title" className={classes.text}>
+                    <Typography component="label" variant="title" className={classes.text}>
                         {props.title}
                     </Typography>
                     }
                     secondary={
                     <React.Fragment>
-                        <Typography component="h1" variant="subheading" className={classes.text}>
+                        <Typography component="label" variant="subheading" className={classes.text}>
                         {`${props.model} • ${props.brand} • ${props.km} KM `}
                         </Typography>
                     </React.Fragment>
                     }
                 />
                 <ListItemSecondaryAction>
-                    <Typography component="h1" variant="title" className={classes.text}>
+                    <Typography component="label" variant="title" className={classes.text}>
                         {`R$ ${props.price}`}
                     </Typography>
                     <React.Fragment>
-                        <Typography component="h1" variant="subheading"className={classes.text} >
+                        <Typography component="label" variant="subheading"className={classes.text} >
                             {props.year}
                         </Typography>
                     </React.Fragment>
