@@ -60,8 +60,8 @@ class Form extends Component{
         if(!title || !model || !year || !brand || !color || !price || !km){
             this.setState({showErrors: true})
         }else{
-            this.props.addVehicle({title, model, year, brand, color, price, km})
-            this.clearForm();
+            this.props.finishAdd({title, model, year, brand, color, price, km})
+            this.clearForm()
         }
     }
 
@@ -105,6 +105,11 @@ class Form extends Component{
                 <form className="form-container">
                      <div className={classes.root}>
                         <Grid container spacing={40}>
+                            { this.props.message != null  && (
+                                <Grid item xs={12} >
+                                    <h3 className="message">{this.props.message}</h3>
+                                </Grid>
+                            )}
                             <Grid item xs={12} >
                                 <Input
                                     className={classes.inputFullWidth}
@@ -219,7 +224,8 @@ const mapDispatchToProps = (dispatch) => bindActionCreators( {...FormActions, ..
 const mapStateToProps = state => ({
     brands: state.form.brands,
     actionForm: state.form.action,
-    form: state.form
+    form: state.form,
+    message: state.form.message
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Form))
