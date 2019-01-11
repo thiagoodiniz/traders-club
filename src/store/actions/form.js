@@ -4,7 +4,8 @@ export const Types = {
     GET_BRANDS_SUCCESS: 'form/GET_BRANDS_SUCCESS',
     GET_BRANDS_FAIL: 'form/GET_BRANDS_FAIL',
     START_UPDATE: 'form/START_UPDATE',
-    FINISH_UPDATE: 'form/FINISH_UPDATE' 
+    FINISH_UPDATE: 'form/FINISH_UPDATE',
+    CANCEL_UPDATE: 'form/CANCEL_UPDATE'
 }
 
 export const Creators = {
@@ -25,5 +26,8 @@ export const Creators = {
     }),
     finishUpdate: () =>({
         type: Types.FINISH_UPDATE
+    }),
+    cancelUpdate: () => ({
+        type: Types.CANCEL_UPDATE
     })
 }

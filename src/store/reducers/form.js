@@ -28,11 +28,14 @@ export default function form(state = INITIAL_STATE, action){
                 }    
             
             case Types.FINISH_UPDATE:
+            case Types.CANCEL_UPDATE:
                 return {
-                    INITIAL_STATE
+                    ...INITIAL_STATE
                 }
 
             default:
-                return INITIAL_STATE    
+                return {
+                    ...INITIAL_STATE 
+                }   
         }
 }

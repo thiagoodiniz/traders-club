@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Creators as ListActions } from '../store/actions/list'
 import { Creators as FormActions } from '../store/actions/form'
+import { Link } from 'react-router-dom';
 
 const styles = () => ({
     root: {
@@ -62,6 +63,10 @@ class Form extends Component{
             this.props.addVehicle({title, model, year, brand, color, price, km})
             this.clearForm();
         }
+    }
+
+    handleCancel = () => {
+        this.props.cancelUpdate();
     }
     
     componentDidMount(){
@@ -193,9 +198,9 @@ class Form extends Component{
                             </Grid>
                             <Grid item xs={12} sm={8} > 
                                 {this.props.actionForm === 'update' &&(
-                                    <div>
-                                        <Button className={classes.editButton} variant="contained">Cancelar</Button>
-                                    </div>
+                                    <Link to='home'>
+                                        <Button className={classes.editButton} onClick={this.handleCancel} variant="contained">Cancelar</Button>
+                                    </Link>
                                 )}
                             </Grid>
                             <Grid item xs={12} sm={1} > 
