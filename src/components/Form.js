@@ -16,7 +16,7 @@ const styles = () => ({
       flexGrow: 1,
       padding: 20,
       width: '800px',
-      marginTop: '100px',
+      marginTop: '50px',
       marginLeft: '100px'
     },
     inputFullWidth: {
@@ -57,11 +57,14 @@ class Form extends Component{
     }
 
     handleSubmit = () => {
-        const {title, model, year, brand, color, price, km} = this.state
+        const {id, title, model, year, brand, color, price, km} = this.state
         if(!title || !model || !year || !brand || !color || !price || !km){
             this.setState({showErrors: true})
         }else{
-            this.props.finishAdd({title, model, year, brand, color, price, km})
+            this.props.actionForm === 'add' 
+            ? this.props.finishAdd({title, model, year, brand, color, price, km})
+            : this.props.finishUpdate({id, title, model, year, brand, color, price, km})
+
             this.clearForm()
         }
     }
