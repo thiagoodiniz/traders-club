@@ -7,7 +7,10 @@ export const Types = {
     GET_BRANDS_FAIL: 'form/GET_BRANDS_FAIL',
     START_UPDATE: 'form/START_UPDATE',
     FINISH_UPDATE: 'form/FINISH_UPDATE',
-    CANCEL_UPDATE: 'form/CANCEL_UPDATE'
+    CANCEL_UPDATE: 'form/CANCEL_UPDATE',
+    REMOVE_VEHICLE_START: 'form/REMOVE_VEHICLE_START',
+    REMOVE_VEHICLE_SUCCESS: 'form/REMOVE_VEHICLE_SUCCESS',
+    REMOVE_VEHICLE_FAIL: 'form/REMOVE_VEHICLE_FAIL'
 }
 
 export const Creators = {
@@ -38,5 +41,16 @@ export const Creators = {
     }),
     cancelUpdate: () => ({
         type: Types.CANCEL_UPDATE
+    }),
+    removeVehicleStart: (id) => ({
+        type: Types.REMOVE_VEHICLE_START,
+        id
+    }),
+    removeVehicleSuccess: () => ({
+        type: Types.REMOVE_VEHICLE_SUCCESS
+    }),
+    removeVehicleFail: () => ({
+        type: Types.REMOVE_VEHICLE_FAIL
     })
+
 }

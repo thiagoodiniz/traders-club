@@ -48,6 +48,22 @@ export default function form(state = INITIAL_STATE, action){
                     ...INITIAL_STATE
                 }
 
+            case Types.REMOVE_VEHICLE_START:
+                return {
+                    ...state
+                }
+            case Types.REMOVE_VEHICLE_SUCCESS:
+                return {
+                    ...state,
+                    action: 'add',
+                    message: 'Veículo removido com sucesso'
+                }
+            case Types.REMOVE_VEHICLE_FAIL:   
+                return {
+                    ...state,
+                    message: 'Não foi possível remover o veículo'
+                } 
+
             default:
                 return {
                     ...state 
