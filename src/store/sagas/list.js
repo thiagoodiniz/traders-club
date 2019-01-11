@@ -22,3 +22,13 @@ export function* getCars(){
         yield put(ListActions.getCarsFail([]))
     }
 }
+
+export function* createVehicle(action){
+        try{
+            const vehicleWithId = yield call(services.createVehicleRequest, action.vehicle)
+            yield put(ListActions.addVehicleSuccess(vehicleWithId))
+        }catch(err){
+            console.log(err)
+            yield put(FormActions.addVehiclefail())
+        }
+}
