@@ -63,6 +63,23 @@ class Form extends Component{
             this.clearForm();
         }
     }
+    
+    componentDidMount(){
+        if(this.props.actionForm === 'update'){
+            const {title, model, year, brand, color, price, km} = this.props.form.vehicleToUpdate;
+            console.log(color)
+            this.setState({
+                title, 
+                model, 
+                year, 
+                brand, 
+                color, 
+                price, 
+                km,
+                showErrors: false
+            })
+        }
+    }
 
     clearForm(){
         this.setState({
@@ -168,10 +185,18 @@ class Form extends Component{
     
                         <Grid container spacing={24}>
                             <Grid item xs={12} sm={2} > 
-                                <Button className={classes.editButton} variant="contained">Remover</Button>
+                            {this.props.actionForm === 'update' &&(
+                                 <div>
+                                    <Button className={classes.editButton} variant="contained">Remover</Button>
+                                 </div>
+                            )}
                             </Grid>
                             <Grid item xs={12} sm={8} > 
-                                <Button className={classes.editButton} variant="contained">Cancelar</Button>
+                                {this.props.actionForm === 'update' &&(
+                                    <div>
+                                        <Button className={classes.editButton} variant="contained">Cancelar</Button>
+                                    </div>
+                                )}
                             </Grid>
                             <Grid item xs={12} sm={1} > 
                                 <Button className={classes.saveButton} onClick={this.handleSubmit} variant="contained">Salvar</Button>
@@ -187,7 +212,9 @@ class Form extends Component{
 const mapDispatchToProps = (dispatch) => bindActionCreators( {...FormActions, ...ListActions} , dispatch)
 
 const mapStateToProps = state => ({
-    brands: state.form.brands
+    brands: state.form.brands,
+    actionForm: state.form.action,
+    form: state.form
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Form))
