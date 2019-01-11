@@ -1,14 +1,14 @@
 
 export const Types = {
-    ADD_VEHICLE: 'list/ADD_VEHICLE',
+    ADD_VEHICLE_SUCCESS: 'list/ADD_VEHICLE_SUCCESS',
     START_SEARCH_VEHICLES: 'list/START_SEARCH_VEHICLES',
     GET_CARS_SUCCESS: 'list/GET_CARS_SUCCESS',
     GET_CARS_FAIL: 'listGET_CARS_FAIL'
 }
 
 export const Creators = {
-    addVehicle: (vehicle) => ({
-        type: Types.ADD_VEHICLE,
+    addVehicleSuccess: (vehicle) => ({
+        type: Types.ADD_VEHICLE_SUCCESS,
         vehicle
     }),
     startSearchVehicles: () => ({

@@ -1,6 +1,8 @@
 
 export const Types = {
     START_ADD: 'form/START_ADD',
+    FINISH_ADD: 'form/FINISH_ADD',
+    ADD_VEHICLE_FAIL: 'list/ADD_VEHICLE_FAIL',
     GET_BRANDS_SUCCESS: 'form/GET_BRANDS_SUCCESS',
     GET_BRANDS_FAIL: 'form/GET_BRANDS_FAIL',
     START_UPDATE: 'form/START_UPDATE',
@@ -11,6 +13,13 @@ export const Types = {
 export const Creators = {
     startAdd: () => ({
         type: Types.START_ADD
+    }),
+    finishAdd: (vehicle) => ({
+        type: Types.FINISH_ADD,
+        vehicle
+    }),
+    addVehicleFail: () => ({
+        type: Types.ADD_VEHICLE_FAIL
     }),
     getBrandSuccess: (brands) => ({
         type: Types.GET_BRANDS_SUCCESS,

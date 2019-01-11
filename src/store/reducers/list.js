@@ -7,14 +7,16 @@ const INITIAL_STATE = {
 
 export default function list( state = INITIAL_STATE, action){
     switch(action.type){
-        case Types.ADD_VEHICLE:
+        case Types.ADD_VEHICLE_SUCCESS:
             return {
+                    ...state,
                     vehicles: [ ...state.vehicles, {...action.vehicle}
                     ]
             }
 
         case Types.START_SEARCH_VEHICLES:
             return {
+                ...state,
                 vehicles: [...state.vehicles],
                 isFetching: true
             }
