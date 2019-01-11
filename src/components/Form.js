@@ -64,12 +64,6 @@ class Form extends Component{
         }
     }
 
-    componentDidMount(){
-        if(this.props.brands.length === 0){
-            this.props.startAdd()
-        }
-    }
-
     clearForm(){
         this.setState({
             title: '',
