@@ -46,3 +46,13 @@ export function* removeVehicle (action){
         yield put(FormActions.removeVehicleFail())
     }
 }
+
+export function* updateVehicle (action){
+    try{
+        const vehicle = yield call(services.updateVehicleRequest, action.vehicle)
+        yield put(FormActions.updateVehicleSuccess(vehicle))
+    }catch(err){
+        console.log(err)
+        yield put(FormActions.updateVehicleFail())
+    }
+}
