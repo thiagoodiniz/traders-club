@@ -2,6 +2,7 @@ import { Types } from '../actions/list'
 
 const INITIAL_STATE = {
     vehicles: [],
+    vehiclesToShow: [],
     isFetching: false
 }
 
@@ -29,9 +30,24 @@ export default function list( state = INITIAL_STATE, action){
                 isFetching: false
             }    
 
+        case Types.FILTER_VEHICLES:
+            return {
+                ...state,
+                vehiclesToShow: filterVehicles(action.filterText, state.vehicles)
+            }    
+
         default:
             return {
                 ...state
             }    
     }
+}
+
+function filterVehicles(filterText, list){
+        if(filterText === ''){
+            return []
+        }
+        return list.filter((item) => {
+            return item.title.toUpperCase().includes(filterText.toUpperCase())
+        })
 }
