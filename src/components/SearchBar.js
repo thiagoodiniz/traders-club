@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Creators as FormActions } from '../store/actions/form'
+import { Creators as ListActions } from '../store/actions/list'
 
 const styles = {
     root: {
@@ -19,8 +20,17 @@ const styles = {
 
 class SearchBar extends Component{
 
+    state = {
+        filterText: ''
+    }
+
     handleClick = () => {
         this.props.startAdd()
+    }
+
+    handleChange = (event) => {
+        this.setState({[event.target.name]: event.target.value})
+        this.props.filterVehicles(event.target.value)
     }
 
     render(){
@@ -30,6 +40,9 @@ class SearchBar extends Component{
                 <TextField
                     id="outlined-bare"
                     className={classes.root}
+                    name="filterText"
+                    value={this.state.filterText}
+                    onChange={this.handleChange}
                     placeholder="Pesquise por um veículo"
                     margin="normal"
                     variant="outlined"
@@ -45,6 +58,6 @@ class SearchBar extends Component{
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({...FormActions, ...ListActions}, dispatch)
 
 export default connect(null, mapDispatchToProps)(withStyles(styles)(SearchBar))
