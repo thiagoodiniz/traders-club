@@ -13,8 +13,13 @@ class Home extends Component {
     render(){
         return(
             <div className="banner">
-                {/* <p>Pesquisa de veículos do TradersClub</p> --> */}
-            <ListVehicles list={this.props.list} />
+                {this.props.list.length > 0 ? (
+                    <ListVehicles list={this.props.list} />
+                    ) :
+                    <p>Pesquisa de veículos do TradersClub</p> 
+                }
+                
+                
     
             </div> 
         )
@@ -22,7 +27,7 @@ class Home extends Component {
 } 
 
 const mapStateToProps = state => ({
-    list: state.list.vehicles
+    list: state.list.vehiclesToShow
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators(ListActions, dispatch)
