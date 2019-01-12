@@ -18,9 +18,6 @@ class Home extends Component {
                     ) :
                     <p>Pesquisa de veículos do TradersClub</p> 
                 }
-                
-                
-    
             </div> 
         )
     }

@@ -26,14 +26,14 @@ const Vehicle = (props) => {
                     secondary={
                     <React.Fragment>
                         <Typography component="label" variant="subheading" className={classes.text}>
-                        {`${props.model} • ${props.brand} • ${props.km} KM `}
+                        {`${props.model} • ${props.brand} • ${props.km.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} KM `}
                         </Typography>
                     </React.Fragment>
                     }
                 />
                 <ListItemSecondaryAction>
                     <Typography component="label" variant="title" className={classes.text}>
-                        {`R$ ${props.price}`}
+                        {`R$ ${props.price.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+,)/g, "$1.")}`}
                     </Typography>
                     <React.Fragment>
                         <Typography component="label" variant="subheading"className={classes.text} >
