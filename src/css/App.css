@@ -42,3 +42,13 @@
   grid-area: body-menu;
 }
 
+.back-image {
+    position: fixed;
+    left: 500px;  
+    display: block;
+    background: url('../img/car-wireframe.png') no-repeat;
+    width: 1200px;
+    height: 800px;  
+    filter: brightness(10%) sepia(70%) hue-rotate(-190deg) saturate(500%) contrast(0.9);
+}
+

@@ -114,118 +114,121 @@ class Form extends Component{
     render(){
         const { classes } = this.props;
         return(
-                <form className="form-container">
-                     <div className={classes.root}>
-                        <Grid container spacing={40}>
-                            { this.props.message != null  && (
-                                <Grid item xs={12} >
-                                    <h3 className="message">{this.props.message}</h3>
-                                </Grid>
-                            )}
-                            <Grid item xs={12} >
-                                <Input
-                                    className={classes.inputFullWidth}
-                                    name="title"
-                                    placeholder="Título"
-                                    value={this.state.title}
-                                    onChange={this.handleChange}
-                                    error={!this.state.title && this.state.showErrors}
-                                    
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Input
-                                    className={classes.inputHalfWidth}
-                                    name="model"
-                                    placeholder="Modelo" 
-                                    value={this.state.model}
-                                    onChange={this.handleChange}
-                                    error={!this.state.model && this.state.showErrors}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                 <Input
-                                    className={classes.inputHalfWidth}
-                                    name="year"
-                                    placeholder="Ano"
-                                    value={this.state.year}
-                                    onChange={this.handleChange}
-                                    error={!this.state.year && this.state.showErrors}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Select
-                                    className={classes.inputFullWidth}
-                                    name="brand"
-                                    placeholder="Montadora"
-                                    value={this.state.brand}
-                                    onChange={this.handleChange}
-                                    error={!this.state.brand && this.state.showErrors}
-                                >
-                                    <MenuItem value="">
-                                        <em>Escolha a montadora...</em>
-                                    </MenuItem>
-                                    {this.props.brands.map(brand => (
-                                        <MenuItem key={brand.id} value={brand.name} >
-                                            {brand.name}
-                                        </MenuItem>
-                                    ))}                                
-
-                                </Select>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Input
-                                    className={classes.inputHalfWidth}
-                                    name="color"
-                                    placeholder="Cor" 
-                                    value={this.state.color}
-                                    onChange={this.handleChange}
-                                    error={!this.state.color && this.state.showErrors}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Input
-                                    className={classes.inputHalfWidth}
-                                    name="price"
-                                    placeholder="Preço" 
-                                    value={this.state.price}
-                                    onChange={this.handleChange}
-                                    error={!this.state.price && this.state.showErrors}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <Input
-                                    className={classes.inputHalfWidth}
-                                    name="km"
-                                    placeholder="KM"
-                                    value={this.state.km}
-                                    onChange={this.handleChange}
-                                    error={!this.state.km && this.state.showErrors}
-                                />
-                            </Grid>
-                        </Grid>
-    
-                        <Grid container spacing={24}>
-                            <Grid item xs={12} sm={2} > 
-                            {this.props.actionForm === 'update' &&(
-                                 <div>
-                                    <Button className={classes.editButton} onClick={this.handleRemove} variant="contained">Remover</Button>
-                                 </div>
-                            )}
-                            </Grid>
-                            <Grid item xs={12} sm={8} > 
-                                {this.props.actionForm === 'update' &&(
-                                    <Link to='/'>
-                                        <Button className={classes.editButton} onClick={this.handleCancel} variant="contained">Cancelar</Button>
-                                    </Link>
+            <div>
+                <div className="back-image"></div>
+                    <form className="form-container">
+                        <div className={classes.root}>
+                            <Grid container spacing={40}>
+                                { this.props.message != null  && (
+                                    <Grid item xs={12} >
+                                        <h3 className="message">{this.props.message}</h3>
+                                    </Grid>
                                 )}
+                                <Grid item xs={12} >
+                                    <Input
+                                        className={classes.inputFullWidth}
+                                        name="title"
+                                        placeholder="Título"
+                                        value={this.state.title}
+                                        onChange={this.handleChange}
+                                        error={!this.state.title && this.state.showErrors}
+                                        
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Input
+                                        className={classes.inputHalfWidth}
+                                        name="model"
+                                        placeholder="Modelo" 
+                                        value={this.state.model}
+                                        onChange={this.handleChange}
+                                        error={!this.state.model && this.state.showErrors}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Input
+                                        className={classes.inputHalfWidth}
+                                        name="year"
+                                        placeholder="Ano"
+                                        value={this.state.year}
+                                        onChange={this.handleChange}
+                                        error={!this.state.year && this.state.showErrors}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Select
+                                        className={classes.inputFullWidth}
+                                        name="brand"
+                                        placeholder="Montadora"
+                                        value={this.state.brand}
+                                        onChange={this.handleChange}
+                                        error={!this.state.brand && this.state.showErrors}
+                                    >
+                                        <MenuItem value="">
+                                            <em>Escolha a montadora...</em>
+                                        </MenuItem>
+                                        {this.props.brands.map(brand => (
+                                            <MenuItem key={brand.id} value={brand.name} >
+                                                {brand.name}
+                                            </MenuItem>
+                                        ))}                                
+
+                                    </Select>
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Input
+                                        className={classes.inputHalfWidth}
+                                        name="color"
+                                        placeholder="Cor" 
+                                        value={this.state.color}
+                                        onChange={this.handleChange}
+                                        error={!this.state.color && this.state.showErrors}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Input
+                                        className={classes.inputHalfWidth}
+                                        name="price"
+                                        placeholder="Preço" 
+                                        value={this.state.price}
+                                        onChange={this.handleChange}
+                                        error={!this.state.price && this.state.showErrors}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <Input
+                                        className={classes.inputHalfWidth}
+                                        name="km"
+                                        placeholder="KM"
+                                        value={this.state.km}
+                                        onChange={this.handleChange}
+                                        error={!this.state.km && this.state.showErrors}
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} sm={1} > 
-                                <Button className={classes.saveButton} onClick={this.handleSubmit} variant="contained">Salvar</Button>
-                            </Grid>
-                        </Grid>   
-                        </div>                         
-            </form>
+        
+                            <Grid container spacing={24}>
+                                <Grid item xs={12} sm={2} > 
+                                {this.props.actionForm === 'update' &&(
+                                    <div>
+                                        <Button className={classes.editButton} onClick={this.handleRemove} variant="contained">Remover</Button>
+                                    </div>
+                                )}
+                                </Grid>
+                                <Grid item xs={12} sm={8} > 
+                                    {this.props.actionForm === 'update' &&(
+                                        <Link to='/'>
+                                            <Button className={classes.editButton} onClick={this.handleCancel} variant="contained">Cancelar</Button>
+                                        </Link>
+                                    )}
+                                </Grid>
+                                <Grid item xs={12} sm={1} > 
+                                    <Button className={classes.saveButton} onClick={this.handleSubmit} variant="contained">Salvar</Button>
+                                </Grid>
+                            </Grid>   
+                            </div>                         
+                </form> 
+            </div>  
         )     
     }
    

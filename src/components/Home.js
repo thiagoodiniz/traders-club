@@ -13,11 +13,12 @@ class Home extends Component {
     render(){
         return(
             <div>
+                <div className="back-image"></div>
                 {this.props.list.length > 0 ? (
                     <ListVehicles list={this.props.list} />
                     ) :
                     <div className="banner">
-                        <span>Pesquisa de veículos do<div style={{backgroundColor:'#304460'}}> TradersClub</div></span> 
+                        <span>Pesquisa de veículos do<div style={{backgroundColor:'#304460', opacity:'0.5'}}> TradersClub</div></span> 
                     </div>
                 }
             </div> 
