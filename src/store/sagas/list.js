@@ -5,6 +5,11 @@ import { Creators as ListActions } from '../actions/list'
 
 export function* getBrands(){
     try{
+        const isApiOn = yield call(services.checkApi)
+        if(!isApiOn){
+            console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
+            return 
+        }
         const brands = yield call(services.getBrandsRequest)
         yield put(FormActions.getBrandSuccess(brands))
     } catch(err){
@@ -15,6 +20,11 @@ export function* getBrands(){
 
 export function* getCars(){
     try{
+        const isApiOn = yield call(services.checkApi)
+        if(!isApiOn){
+            console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
+            return 
+        }
         const vehicles = yield call(services.searchVehiclesRequest)
         yield put(ListActions.getCarsSuccess(vehicles))
     }catch(err){
@@ -25,6 +35,11 @@ export function* getCars(){
 
 export function* createVehicle(action){
         try{
+            const isApiOn = yield call(services.checkApi)
+            if(!isApiOn){
+                console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
+                return 
+            }
             const vehicleWithId = yield call(services.createVehicleRequest, action.vehicle)
             yield put(ListActions.addVehicleSuccess(vehicleWithId))
         }catch(err){
@@ -35,6 +50,11 @@ export function* createVehicle(action){
 
 export function* removeVehicle (action){
     try{
+        const isApiOn = yield call(services.checkApi)
+        if(!isApiOn){
+            console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
+            return 
+        }
         const response = yield call(services.removeVehicleRequest, action.id)
         if(response.status === 204){
             yield put(FormActions.removeVehicleSuccess())
@@ -49,6 +69,11 @@ export function* removeVehicle (action){
 
 export function* updateVehicle (action){
     try{
+        const isApiOn = yield call(services.checkApi)
+        if(!isApiOn){
+            console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
+            return 
+        }
         const vehicle = yield call(services.updateVehicleRequest, action.vehicle)
         yield put(FormActions.updateVehicleSuccess(vehicle))
     }catch(err){

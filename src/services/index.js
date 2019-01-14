@@ -2,6 +2,15 @@
 import api from './api'
 
 export const services = {
+
+    checkApi: () => {
+       return api.get('')
+            .then(resp => resp.data.online)
+            .catch(err => {
+                console.log(err)
+                return false
+            })
+    },
     getBrandsRequest: () =>{
        return api.get('brands')
                 .then(resp => resp.data.brands)
