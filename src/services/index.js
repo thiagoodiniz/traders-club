@@ -8,6 +8,7 @@ export const services = {
             .then(resp => resp.data.online)
             .catch(err => {
                 console.log(err)
+                console.log('Houve um problema ao acessar a API. Tente novamente mais tarde.')
                 return false
             })
     },
