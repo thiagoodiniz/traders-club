@@ -12,7 +12,7 @@ const styles = () => ({
   root: {
     flexGrow: 1,
     width: '1000px',
-    marginLeft: '30px',
+    marginLeft: '50px',
     marginTop: '30px'
   }
 });

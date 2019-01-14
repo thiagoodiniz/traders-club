@@ -16,4 +16,6 @@ body {
 .banner {
     font-family: 'Lobster Two', cursive;
     font-size: 100px;
+    width: 900px;
+    padding-left: 100px;
 }
