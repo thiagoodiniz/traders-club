@@ -29,7 +29,7 @@ class ListVehicles extends Component{
         <div className={classes.root}>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-          { this.props.list.map((vehicle) => {
+          { this.props.list && this.props.list.map((vehicle) => {
             return(
               <Link to='form' style={{ textDecoration: 'none' }}>
                   <List component="nav" onClick={() => this.handleClick(vehicle.id,vehicle.title,vehicle.model,vehicle.color,vehicle.year,vehicle.brand,vehicle.price,vehicle.km)} className={classes.root}>

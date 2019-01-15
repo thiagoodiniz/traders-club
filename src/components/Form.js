@@ -167,7 +167,7 @@ class Form extends Component{
                                         <MenuItem value="">
                                             <em>Escolha a montadora...</em>
                                         </MenuItem>
-                                        {this.props.brands.map(brand => (
+                                        {this.props.brands && this.props.brands.map(brand => (
                                             <MenuItem key={brand.id} value={brand.name} >
                                                 {brand.name}
                                             </MenuItem>
